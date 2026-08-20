@@ -32,6 +32,20 @@ The GR-IQA training data and training code are planned for a later release.
 Benchmark images are not redistributed. Download each benchmark from its
 official source and provide the local paths described below.
 
+## 📰 News
+
+- **[2026.08.20]** 🎉 Inference and evaluation code is released.
+- **[2026.08.20]** 🤗 The `Zoom-IQA-7B` checkpoint is released on Hugging Face.
+- **[2026.01.06]** 📄 Our paper is available on [arXiv](https://arxiv.org/abs/2601.02918).
+
+## 📌 Roadmap & Status
+
+- [x] Release the Zoom-IQA-7B inference checkpoint
+- [x] Release the inference and benchmark evaluation code
+- [ ] Release the benchmark annotation files
+- [ ] Release the GR-IQA training data
+- [ ] Release the training code
+
 ## 🔧 Installation
 
 Use separate environments for the Transformers and vLLM evaluators.
