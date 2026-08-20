@@ -42,7 +42,6 @@ official source and provide the local paths described below.
 
 - [x] Release the Zoom-IQA-7B inference checkpoint
 - [x] Release the inference and benchmark evaluation code
-- [ ] Release the benchmark annotation files
 - [ ] Release the GR-IQA training data
 - [ ] Release the training code
 
