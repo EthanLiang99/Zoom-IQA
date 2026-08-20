@@ -38,10 +38,10 @@ Paper = "https://arxiv.org/abs/2601.02918"
 Project = "https://ethanliang99.github.io/ZOOMIQA-Projectpage/"
 
 [project.scripts]
-zoomiqa-score = "zoomiqa.predict:main"
-zoomiqa-eval = "zoomiqa.evaluate:main"
-zoomiqa-eval-vllm = "zoomiqa.evaluate_vllm:main"
-zoomiqa-check-env = "zoomiqa.environment:main"
+zoomiqa-score = "zoomiqa.inference.predict:main"
+zoomiqa-eval = "zoomiqa.inference.evaluate:main"
+zoomiqa-eval-vllm = "zoomiqa.inference.evaluate_vllm:main"
+zoomiqa-check-env = "zoomiqa.inference.environment:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

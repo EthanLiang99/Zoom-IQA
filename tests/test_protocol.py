@@ -9,7 +9,7 @@ import unittest.mock
 
 from PIL import Image
 
-from zoomiqa.evaluate import (
+from zoomiqa.inference.evaluate import (
     _completion_token_lengths,
     _merge_unique_records,
     _read_jsonl,
@@ -17,10 +17,10 @@ from zoomiqa.evaluate import (
     parse_devices,
     summarize,
 )
-from zoomiqa.metrics import correlations, fit_isotonic
-from zoomiqa.predict import _prepare_question, _public_prediction, _single_image_sample
-from zoomiqa.evaluate_vllm import _physical_device, sampling_config
-from zoomiqa.protocol import (
+from zoomiqa.inference.metrics import correlations, fit_isotonic
+from zoomiqa.inference.predict import _prepare_question, _public_prediction, _single_image_sample
+from zoomiqa.inference.evaluate_vllm import _physical_device, sampling_config
+from zoomiqa.inference.protocol import (
     STAGE1_PROMPT,
     STAGE2_PROMPT,
     AnswerParseError,
@@ -51,7 +51,7 @@ class ProtocolTests(unittest.TestCase):
 
     def test_single_image_default_question_is_seeded(self) -> None:
         expected_rng = random.Random(42)
-        from zoomiqa.protocol import RANDOM_QUESTIONS
+        from zoomiqa.inference.protocol import RANDOM_QUESTIONS
 
         expected = expected_rng.choice(RANDOM_QUESTIONS)
         self.assertEqual(_prepare_question(None, random.Random(42)), (expected, expected))
@@ -169,7 +169,7 @@ class ProtocolTests(unittest.TestCase):
             )
             samples, _ = load_samples([annotation], root, seed=42, max_samples=None)
 
-        from zoomiqa.protocol import RANDOM_QUESTIONS
+        from zoomiqa.inference.protocol import RANDOM_QUESTIONS
 
         expected = random.Random(42).choice(RANDOM_QUESTIONS)
         self.assertEqual(samples[0].question, expected)

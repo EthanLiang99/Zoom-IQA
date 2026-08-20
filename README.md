@@ -32,11 +32,7 @@ The GR-IQA training data and training code are planned for a later release.
 Benchmark images are not redistributed. Download each benchmark from its
 official source and provide the local paths described below.
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/EthanLiang99/ZOOMIQA-Projectpage/main/zoomiqa/cvpr26_framework.png" width="100%" alt="Zoom-IQA framework">
-</p>
-
-## Installation
+## 🔧 Installation
 
 Use separate environments for the Transformers and vLLM evaluators.
 
@@ -64,7 +60,7 @@ python -m pip install -e . --no-deps
 Do not install both requirements files in the same environment: they use
 different PyTorch, Transformers, and image-processing versions.
 
-## Try your own image
+## 🔍 Try your own image
 
 You do not need benchmark annotations to score a single image. Run this entrypoint
 from the Transformers environment:
@@ -88,14 +84,14 @@ test set, not from single-image runs.
 For applications that score more than one user image, load the model once:
 
 ```python
-from zoomiqa.predict import ZoomIQAPredictor
+from zoomiqa.inference.predict import ZoomIQAPredictor
 
 predictor = ZoomIQAPredictor("Ethanliang99/Zoom-IQA-7B", device=0)
 result = predictor.predict("/path/to/your_image.jpg")
 print(result["rating"])
 ```
 
-## Data format
+## 📂 Data format
 
 Each annotation file is a JSON list. Every row must contain an image path and a
 ground-truth score:
@@ -113,7 +109,7 @@ also accepted. A question may be supplied in `conversations[0]`; otherwise the
 evaluator selects one of the frozen prompts with the run seed. Missing images
 and malformed labels fail before model inference.
 
-## Evaluation
+## 📊 Evaluation
 
 The Transformers evaluator follows the two-round protocol:
 
@@ -148,7 +144,7 @@ The vLLM backend uses temperature `0.1` and an `</answer>` stop string. It is a
 throughput-oriented variant, not an exact reproduction of the Transformers
 runtime.
 
-## License and citation
+## 📄 License and citation
 
 The code and model are released under Apache-2.0. Dataset images retain their
 source-specific licenses.
