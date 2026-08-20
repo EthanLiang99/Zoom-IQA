@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zoom-iqa"
+version = "0.1.0"
+description = "Reproducible two-round evaluation for Zoom-IQA"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [
+  {name = "Guoqiang Liang"},
+  {name = "Jianyi Wang"},
+  {name = "Zhonghua Wu"},
+  {name = "Shangchen Zhou"},
+  {name = "Chen Change Loy"},
+]
+dependencies = [
+  "accelerate==1.6.0",
+  "dirtyjson==1.0.8",
+  "numpy==1.26.4",
+  "pillow==11.1.0",
+  "qwen-vl-utils==0.0.10",
+  "safetensors==0.5.3",
+  "scikit-learn==1.5.2",
+  "torch==2.6.0",
+  "torchvision==0.21.0",
+  "transformers @ git+https://github.com/huggingface/transformers.git@d1b92369ca193da49f9f7ecd01b08ece45c2c9aa",
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+]
+
+[project.urls]
+Paper = "https://arxiv.org/abs/2601.02918"
+Project = "https://ethanliang99.github.io/ZOOMIQA-Projectpage/"
+
+[project.scripts]
+zoomiqa-score = "zoomiqa.predict:main"
+zoomiqa-eval = "zoomiqa.evaluate:main"
+zoomiqa-eval-vllm = "zoomiqa.evaluate_vllm:main"
+zoomiqa-check-env = "zoomiqa.environment:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

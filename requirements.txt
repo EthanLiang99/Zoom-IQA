@@ -1,0 +1,11 @@
+# Transformers evaluation environment (without vLLM).
+accelerate==1.6.0
+torch==2.6.0
+torchvision==0.21.0
+transformers @ git+https://github.com/huggingface/transformers.git@d1b92369ca193da49f9f7ecd01b08ece45c2c9aa
+qwen-vl-utils==0.0.10
+dirtyjson==1.0.8
+numpy==1.26.4
+pillow==11.1.0
+safetensors==0.5.3
+scikit-learn==1.5.2
